@@ -39,7 +39,7 @@ class AdminUser extends Authenticatable
         $colors = ['primary','info','success','warning','danger','mint','purple','pink'];
         if (!$this->roles->isEmpty()) {
             foreach ($this->roles as $role) {
-                $html .= '<a href="' . route('adminUser.index', ['role_id' => $role->id]) . '" title="' . $role->name . '" target="_blank" class=""><span class="label label-'.array_random($colors).'">' . $role->name . '</span></a>&nbsp;';
+                $html .= '<a href="' . route('adminUser.index', ['role_id' => $role->id]) . '" title="' . $role->name_cn . '" target="_blank" class=""><span class="label label-'.array_random($colors).'">' . $role->name_cn . '</span></a>&nbsp;';
             }
             $html = rtrim($html, '&nbsp;');
         }else{

@@ -86,7 +86,7 @@
                         <select name="roles[]" id="roles" multiple="multiple" class="form-control">
                             <option value="">选择角色...</option>
                             @foreach($adminRoles as $role)
-                                <option value="{{$role->id}}">{{$role->name}}</option>
+                                <option value="{{$role->id}}">{{$role->name_cn}}</option>
                             @endforeach
                         </select>
                     </div>

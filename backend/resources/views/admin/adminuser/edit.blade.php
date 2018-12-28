@@ -87,7 +87,7 @@
                             <option value="">选择角色...</option>
                             @foreach($adminRoles as $role)
                                 <option value="{{$role->id}}"
-                                        @if($adminUser->roles->contains($role->id)) selected @endif>{{$role->name}}</option>
+                                        @if($adminUser->roles->contains($role->id)) selected @endif>{{$role->name_cn}}</option>
                             @endforeach
                         </select>
                     </div>
