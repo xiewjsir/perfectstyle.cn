@@ -45,7 +45,7 @@ return [
             'provider' => 'AdminUsers',
         ],
         'api' => [
-            'driver' => 'token',
+            'driver' => 'jwt',
             'provider' => 'users',
         ],
     ],
