@@ -3,7 +3,7 @@
  * 结构型模式
  *
  * php适配器模式
- * 把实现了不同接口的对象通过适配器的方式组合起来放在一个新的环境
+ * 将一个类的接口，转换成客户期望的另一个接口。适配器让原本不兼容的类可以合作无间。
  *
  * @author  TIGERB <https://github.com/TIGERB>
  * @example 运行 php test.php
