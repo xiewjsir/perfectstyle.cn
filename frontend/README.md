@@ -1,5 +1,9 @@
 # frontend
 
+``
+cnpm install yarn
+``
+
 ## Project setup
 ```
 yarn install
