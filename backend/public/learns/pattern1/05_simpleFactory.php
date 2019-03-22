@@ -6,7 +6,7 @@ class CommsManager {
     const BLOGGS = 1;
     const MEGA = 2;
 
-    private = $mode;
+    private $mode;
 
     public function __construct($mode) {
         $this->mode = $mode;
