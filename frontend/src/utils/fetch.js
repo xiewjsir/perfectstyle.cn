@@ -5,7 +5,7 @@ import { getToken, setToken } from '@/utils/auth'
 import { loginToken } from "@/api/auth";
 
 const service = axios.create({// 创建axios实例
-    baseURL: process.env.BASE_API,
+    baseURL: process.env.VUE_APP_BASE_API,
     timeout: 150000,// 请求超时时间
     withCredentials: true
 })

@@ -17,7 +17,6 @@
         <div class="item-content">
           <h3>学好JS,走哪儿都不怕</h3>
           <span class="Subtitle">html</span><br />
-
           <p>对于想学习Javascript的读者来说, 很可能已经掌握了HTML和Web页面设计的基本知识,希望为页面添加一些更好的互动性,或者,目前是在使用其他语言进行编程,想了解一下JavaScript能够提供哪些更多的功能供哪些更多的功能</p>
           <router-link to="/article-detail"><button class="layui-btn">阅读全文</button></router-link>
         </div>
@@ -48,7 +47,6 @@
         <div class="item-content">
           <h3>学好JS,走哪儿都不怕</h3>
           <span class="Subtitle">html</span><br />
-
           <p>对于想学习Javascript的读者来说, 很可能已经掌握了HTML和Web页面设计的基本知识,希望为页面添加一些更好的互动性,或者,目前是在使用其他语言进行编程,想了解一下JavaScript能够提供哪些更多的功能供哪些更多的功能</p>
           <a href="article-detail.html" onclick="javascript:window.open(this.href)"><button class="layui-btn">阅读全文</button></a>
         </div>

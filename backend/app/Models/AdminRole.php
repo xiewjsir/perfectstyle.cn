@@ -13,4 +13,6 @@ use Illuminate\Database\Eloquent\Model;
 class AdminRole extends Model
 {
     protected $fillable = ['name_en','name_cn','description'];
+
+    protected $table = "admin_role";
 }

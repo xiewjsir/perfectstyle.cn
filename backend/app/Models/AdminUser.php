@@ -11,6 +11,8 @@ class AdminUser extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = "admin_user";
+
     /**
      * The attributes that are mass assignable.
      *
@@ -31,7 +33,7 @@ class AdminUser extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany(AdminRole::class, 'admin_user_role_pivots', 'user_id', 'role_id');
+        return $this->belongsToMany(AdminRole::class, 'admin_user_role_pivot', 'user_id', 'role_id');
     }
 
     public function getRoleLinksAttribute(){

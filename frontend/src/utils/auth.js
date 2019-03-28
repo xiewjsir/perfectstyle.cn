@@ -1,8 +1,6 @@
 import cookies from 'js-cookie'
-const tokenKey = 'shaking-token'
-const invitecodeKey = 'shaking-invitecode'
-const userIdKey = 'shaking-userId'
-const userInfoKey = 'shaking-userInfo'
+const tokenKey = 'token'
+const userInfoKey = 'userInfo'
 
 export function getToken() {
     return cookies.get(tokenKey)

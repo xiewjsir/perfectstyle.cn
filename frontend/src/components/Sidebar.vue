@@ -25,28 +25,36 @@
         </div>
         <ul class="layui-nav">
             <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
-            <li class="layui-nav-item  layui-this">
-                <router-link to="/">文章<br/>ARTICLE</router-link>
-            </li>
-            <li class="layui-nav-item">
-                <router-link to="/mood">微语<br/>MOOD</router-link>
-            </li>
-            <li class="layui-nav-item">
-                <router-link to="/works">作品<br/>WORKS</router-link>
-            </li>
-            <li class="layui-nav-item">
-                <a href="message.html">留言<br/>MESSAGE</a>
-            </li>
-            <li class="layui-nav-item last">
-                <a href="about.html">关于<br/>ABOUT</a>
+            <li  v-for="item of columns" :key="item.id" class="layui-nav-item  layui-this">
+                <router-link :to="{path:'/'+item.slug}">{{item.name}}<br/>{{item.slug}}</router-link>
             </li>
         </ul>
     </div>
 </template>
 
 <script>
+    import {getColumns} from "../api/base";
+
     export default {
-        name: "Sidebar"
+        name: "Sidebar",
+        data(){
+            return {
+                columns:[]
+            }
+        },
+        mounted(){
+            console.log(process.env.VUE_APP_BASE_API)
+            this.getColumns(0)
+        },
+        methods:{
+            getColumns:function(parentId){
+                getColumns(parentId).then(reponse=>{
+                    console.log(reponse)
+                }).catch(error=>{
+                    console.log(error)
+                })
+            }
+        }
     }
 </script>
 

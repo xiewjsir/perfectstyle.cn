@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class File extends Model
 {
     public $fillable = ['title', 'type','path'];
+    protected $table = "file";
 }

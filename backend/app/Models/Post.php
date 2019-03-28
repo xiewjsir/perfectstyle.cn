@@ -8,17 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    protected $table = "post";
+
     public $fillable = ['title', 'column_id', 'tag_name', 'author', 'summary', 'content','post_status','comment_status','post_password'];
     public $appends = ['column_str','backend_tag_links'];
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'post_tag_pivots', 'post_id', 'tag_id');
+        return $this->belongsToMany(Tag::class, 'post_tag_pivot', 'post_id', 'tag_id');
     }
 
     public function files()
     {
-        return $this->belongsToMany(File::class, 'post_file_pivots', 'post_id', 'file_id');
+        return $this->belongsToMany(File::class, 'post_file_pivot', 'post_id', 'file_id');
     }
 
     public function getColumnStrAttribute()

@@ -10,6 +10,8 @@ class adminNode extends Model
         'parent_id','sort','name','icon','uri','level','path','type','method'
     ];
 
+    protected $table = "admin_node";
+
     public static $typeMap = [
         'menu'=>'菜单',
         'function'=>'功能'

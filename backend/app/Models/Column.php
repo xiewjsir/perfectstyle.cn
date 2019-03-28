@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Column extends Model
 {
+    protected $table = "column";
+
     /**
      * Return the index layout to use for a tag
      *
