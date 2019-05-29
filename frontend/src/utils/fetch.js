@@ -11,9 +11,9 @@ const service = axios.create({// 创建axios实例
 })
 
 service.interceptors.request.use(config => {// request拦截器
-    if (getToken()) {
-        config.headers['Authorization'] = "Bearer " + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
-    }
+    //if (getToken()) {
+        config.headers['Authorization'] = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9vbWMud29ydGhjbG91ZC5uZXRcL3YxXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU1NTU3NTM2MCwiZXhwIjoxNTU1NTc4OTYwLCJuYmYiOjE1NTU1NzUzNjAsImp0aSI6Ik1KWEVVRlVwRHppb0I2WGMiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.sDiqZiRctME_8txGPl4UL1bWfumSgSIJdk09Y4le49Q";// + getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
+    //}
 
     if(config.method == "post"){
         config.data = qs.stringify(config.data);
@@ -52,7 +52,7 @@ service.interceptors.request.use(config => {// request拦截器
 service.interceptors.response.use(// respone拦截器
     response => {
         const res = response.data
-        return res
+        return response
     },
     error => {
         console.log(error);

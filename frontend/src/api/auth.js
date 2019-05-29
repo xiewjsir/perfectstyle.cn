@@ -2,10 +2,10 @@ import fetch from '@/utils/fetch'
 
 export function login(username, password) {
     return fetch({
-        url: '/v1/login',
+        url: '/login',
         method: 'post',
         data: {
-            mobile:username,
+            username,
             password
         }
     })
@@ -13,14 +13,14 @@ export function login(username, password) {
 
 export function logout() {
     return fetch({
-      url: '/v1/logout',
+      url: '/logout',
       method: 'post'
     })
 }
 
 export function loginToken() {
     return fetch({
-        url: '/v1/token/refresh',
+        url: '/token/refresh',
         method: 'post'
     })
 }
@@ -28,8 +28,8 @@ export function loginToken() {
 //我的个人信息
 export function usersInfo() {
     return fetch({
-        url: '/v1/auth/user',
-        method: 'post'
+        url: '/auth/user',
+        method: 'get'
     })
 }
 

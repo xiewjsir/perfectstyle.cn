@@ -10,5 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::any('grpc', function () {
+    phpinfo();
+//    $client = new Helloworld\GreeterClient('localhost:50051', [
+//        'credentials' => Grpc\ChannelCredentials::createInsecure(),
+//    ]);
+//    $request = new Helloworld\HelloRequest();
+//    $name = !empty($argv[1]) ? $argv[1] : 'world';
+//    $request->setName($name);
+//    list($reply, $status) = $client->SayHello($request)->wait();
+//    $message = $reply->getMessage();
+});
 
 

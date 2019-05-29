@@ -82,12 +82,48 @@
 import Sidebar from '@/components/Sidebar.vue'
 import Tags from '@/components/Tags.vue'
 import Search from '@/components/Search.vue'
+import {usersInfo} from "@/api/auth"
+import { mapActions } from 'vuex'
+
 export default {
   name: 'article',
   components: {
       Sidebar,
       Tags,
       Search
+  },
+  data(){
+    return {
+      loginForm:{
+        username:"admin",
+        password:"123456"
+      },
+      tipMessage:''
+    }
+  },
+  mounted(){
+    //this.handleLogin();
+    this.test();
+  },
+  methods:{
+    test(){
+      usersInfo().then(response => {
+          console.log(response);
+        }).catch(error => {
+          console.log(error)
+        })
+    },
+    handleLogin(){
+      this.login(this.loginForm).then(()=>{
+        this.tipMessage = '登录成功';
+
+        this.$router.push({ path: "/" });
+      }).catch(error=>{
+        let result = error.response;
+        this.tipMessage = '登录的失败';
+      })
+    },
+    ...mapActions(['login'])
   }
 }
 </script>

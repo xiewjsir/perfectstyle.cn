@@ -15,14 +15,12 @@ use Illuminate\Http\Request;
 Route::group(['namespace' => 'Api\V1'], function () {
     Route::post('auth/login', 'AuthController@login');
 
-    Route::group(['middleware' => ['auth:api']],function(){
-        Route::post('auth/logout', 'AuthController@logout');
-        Route::post('auth/refresh', 'AuthController@refresh');
-        Route::get('auth/user', 'AuthController@user');
-    });
-
     Route::resource('article','ArticleController');
     Route::resource('column','ColumnController');
     Route::resource('tag','TagController');
     Route::resource('message','MessageController');
+
+    Route::GET('protobuf/send','ProtobufController@send')->name('protobuf.send');
+    Route::GET('protobuf/receive','ProtobufController@receive')->name('protobuf.receive');
+
 });
