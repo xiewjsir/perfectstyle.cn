@@ -177,6 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         //Zizaco\Entrust\EntrustServiceProvider::class,
+        Sentry\Laravel\ServiceProvider::class,
+        App\Providers\ElasticSearchClientProvider::class,
     ],
 
     /*
@@ -228,6 +230,7 @@ return [
         //'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
         'JWTFactory' => 'Tymon\JWTAuth\Facades\JWTFactory',
+        'Sentry' => Sentry\Laravel\Facade::class,
     ],
 
 ];

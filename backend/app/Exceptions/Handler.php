@@ -2,8 +2,11 @@
 
 namespace App\Exceptions;
 
+use App\Facades\ElasticSearchClient;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use App\Jobs\ElasticSearchLog as JElasticSearchLog;
+use Log;
 
 class Handler extends ExceptionHandler
 {
@@ -34,6 +37,20 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+        if (app()->bound('sentry') && $this->shouldReport($exception)){
+            app('sentry')->captureException($exception);
+        }
+
+        try {
+            $logs = ElasticSearchClient::getLogs();
+            // 需要判断是否有日志
+            if (count($logs) > 0) {
+                dispatch(new JElasticSearchLog($logs));
+            }
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+        }
+
         parent::report($exception);
     }
 

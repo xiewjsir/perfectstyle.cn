@@ -44,7 +44,7 @@ class RabbitPubsub extends Command
         $connection = new AMQPStreamConnection('192.168.1.73', 5672, 'guest', 'guest');
         $channel    = $connection->channel();
 
-        $channel->exchange_declare('logs', 'fanout', false, false, false);
+        $channel->exchange_declare('logs', 'fanout', false, true, false);
 
         if ('send' == $this->option('act')) {
             $data = $this->option('msg');
@@ -57,7 +57,7 @@ class RabbitPubsub extends Command
 
             echo ' [x] Sent ', $data, "\n";
         } else {
-            list($queue_name, ,) = $channel->queue_declare("", false, false, true, false);
+            list($queue_name, ,) = $channel->queue_declare("pubsubtest", false, true, true, false);
 
             $channel->queue_bind($queue_name, 'logs');
 
